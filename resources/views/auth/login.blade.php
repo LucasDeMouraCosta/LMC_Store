@@ -17,23 +17,51 @@
         <div class="text-login">
           Use as suas credenciais para realizar o Login.
         </div>
-        <form>
+        <form method="POST" action="{{ route('login') }}">
+          @csrf
+
+          @if (session('error'))
+
+            <div class="error">
+              {{ session('error') }}
+            </div>
+            
+          @endif
+
           <div class="email-area">
+            
             <div class="email-label">E-mail</div>
-            <input type="email" placeholder="Digite o seu e-mail" />
+            <input type="email" name="email" placeholder="Digite o seu e-mail" value="{{ @old('email') }}" required/>
+            
+            @error('email')
+              <div class="error">
+                {{ $message }}
+              </div>
+            @enderror
+
           </div>
+
           <div class="password-area">
+
             <div class="password-label">
               <div class="password-area-text">Senha</div>
-              <a href="{{ route('forgot-password') }}" class="password-area-forgot">Esqueceu sua senha?</a>
+              <a href="{{ route('forgot_password') }}" class="password-area-forgot">Esqueceu sua senha?</a>
             </div>
-            <div class="password-input-area">
-              <input type="password" placeholder="Digite a sua senha" />
-              <img src="assets/icons/eyeIcon.png" alt="Ícone mostrar senha" />
-            </div>
+
+            <x-form.password-input name="password" placeholder="Digite a sua senha" id="password" />
+
+            @error('password')
+              <div class="error">
+                {{ $message }}
+              </div>
+            @enderror
+
           </div>
+
           <button class="login-button">Entrar</button>
+
         </form>
+
         <div class="register-area">
           Ainda não tem cadastro? <a href="{{ route('register') }}">Cadastre-se</a>
         </div>

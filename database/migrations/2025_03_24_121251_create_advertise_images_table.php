@@ -15,7 +15,7 @@ return new class extends Migration
         Schema::create('advertise_images', function (Blueprint $table) {
             $table->id();
             $table->string('url');
-            $table->foreignIdFor(Advertise::class);
+            $table->foreignIdFor(Advertise::class)->constrained();
             $table->boolean('featured')->default(false);
             $table->timestamps();
         });

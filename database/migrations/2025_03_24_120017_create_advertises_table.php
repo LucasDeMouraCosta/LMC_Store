@@ -23,9 +23,9 @@ return new class extends Migration
             $table->text('description');
             $table->string('contact');
             $table->integer('views')->default(0);
-            $table->foreignIdFor(User::class);
-            $table->foreignIdFor(Category::class);
-            $table->foreignIdFor(State::class);
+            $table->foreignIdFor(User::class)->constrained();
+            $table->foreignIdFor(Category::class)->constrained();
+            $table->foreignIdFor(State::class)->constrained();
             $table->timestamps();
         });
     }

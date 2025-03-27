@@ -17,14 +17,7 @@
             
           </select>
 
-          <select class="states">
-
-            <option selected hidden disabled value="">Estado</option>
-            @foreach ($states as $state)
-                <option value="{{ $state['value']}}">{{ $state['name'] }}</option>                
-            @endforeach
-
-          </select>
+          <x-form.input-select-state />
 
           <button class="search-button">Procurar</button>
         </div>
