@@ -10,10 +10,12 @@ use Illuminate\View\Component;
 class InputSelectState extends Component
 {
     public $states;
+    public $selectedState;
 
-    public function __construct()
+    public function __construct($selectedState = null)
     {
         $this->states = State::all();
+        $this->selectedState = $selectedState;
     }
 
     /**

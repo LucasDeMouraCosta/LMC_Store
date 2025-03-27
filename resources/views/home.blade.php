@@ -8,7 +8,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="assets/style.css" />
-    <title>B7Store</title>
+    <title>LMC_Store</title>
   </head>
 
   <body>
