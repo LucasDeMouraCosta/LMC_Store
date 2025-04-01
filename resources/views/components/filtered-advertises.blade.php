@@ -30,16 +30,15 @@
     <div class="ads-title">Anúncios recentes</div>
     <div class="ads-area">
 
-        @foreach ($advertisesList as $advertise)
-            
-            <x-simple-advertise
-                bgImage="{{ $advertise['image'] }}"
-                title="{{ $advertise['title'] }}"
-                price="{{ $advertise['price'] }}"
-                href="{{ $advertise['href'] }}"
-            />
-            
-        @endforeach
+        @if ($advertises->isEmpty())
+            <div class="no-ads-message">
+                <p>Não há anúncios recentes para exibir.</p>
+            </div>
+        @else
+            @foreach ($advertises as $advertise)
+                <x-basic-ad :advertise="$advertise" :canEdit="false"/>
+            @endforeach
+        @endif
     
     </div>
 </div>

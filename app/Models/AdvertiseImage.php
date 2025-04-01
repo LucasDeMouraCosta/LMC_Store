@@ -4,18 +4,15 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Testing\Fluent\Concerns\Has;
 
-class Category extends Model
+class AdvertiseImage extends Model
 {
     use HasFactory;
-
     protected $fillable = [
         'id',
-        'name',
+        'url',
+        'advertise_id',
+        'featured',
     ];
-
-    public function advertises() : HasMany{
-        return $this->hasMany(Advertise::class);
-    }
 }

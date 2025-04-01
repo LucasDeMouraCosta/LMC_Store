@@ -2,9 +2,44 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Advertise extends Model
 {
-    //
+    use HasFactory;
+    protected $fillable = [
+        'id',
+        'title',   
+        'slug',
+        'price',
+        'negotiable',
+        'description',
+        'contact',
+        'views',
+        'state_id',
+        'user_id',
+        'category_id',
+    ];
+
+    public function user() : BelongsTo{
+        return $this->belongsTo(User::class);
+    }
+
+    public function state() : BelongsTo{
+        return $this->belongsTo(State::class);
+    }
+
+    public function category() : BelongsTo{
+        return $this->belongsTo(Category::class);
+    }
+
+    public function images(){
+        return $this->hasMany(AdvertiseImage::class);
+    }
+
+    public function featured_image(){
+        return $this->hasOne(AdvertiseImage::class)->where('featured', true);
+    }
 }

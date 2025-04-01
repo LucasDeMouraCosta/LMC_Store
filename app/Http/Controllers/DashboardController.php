@@ -28,4 +28,12 @@ class DashboardController extends Controller
 
         return redirect()->back()->with('success', 'Dados atualizados com sucesso');
     }
+
+    public function my_ads(Request $request){
+        
+        $data['user'] = User::find(Auth::user()->id);
+        $data['advertises'] = $data['user']->advertises;
+
+        return view('dashboard.my_ads', $data);
+    }
 }

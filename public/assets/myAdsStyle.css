@@ -56,6 +56,7 @@
   width: 100%;
   aspect-ratio: 1/1;
   cursor: pointer;
+  position: relative;
 }
 .ad-image-area .ad-image {
   width: 100%;
@@ -83,6 +84,18 @@
   justify-content: center;
   cursor: pointer;
   margin-left: 8px;
+}
+.pill{
+  padding: 5px 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border-radius: 5px;
+}
+.my-ad-pill{
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  font-size: 11px;
 }
 @media (max-width: 1024px) {
   .myAds-ads-area {

@@ -20,15 +20,15 @@
         <div class="my-account-page">
           <div class="sidebar">
             <div class="sidebar-top">
-              <a href="/myAccount.html" class="config"
+              <a href="{{ route('my_account') }}" class="config"
                 ><img src="/assets/icons/configIcon.png" /> Configurações</a
               >
-              <a href="/myAds.html"
+              <a href="{{ route('my_ads') }}"
                 ><img src="/assets/icons/layersIonGray.png" /> Meus Anúncios</a
               >
             </div>
             <div class="sidebar-bottom">
-              <a href="/index.html"
+              <a href="{{route('logout')}}"
                 ><img src="/assets/icons/logoutIcon.png" /> Sair</a
               >
             </div>

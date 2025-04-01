@@ -8,6 +8,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="assets/style.css" />
+    <link rel="stylesheet" href="/assets/myAdsStyle.css" />
     <title>LMC_Store</title>
   </head>
 
