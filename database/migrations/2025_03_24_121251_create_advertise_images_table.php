@@ -18,6 +18,7 @@ return new class extends Migration
             $table->foreignIdFor(Advertise::class)->constrained();
             $table->boolean('featured')->default(false);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

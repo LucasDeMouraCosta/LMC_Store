@@ -36,7 +36,9 @@
             </div>
         @else
             @foreach ($advertises as $advertise)
-                <x-basic-ad :advertise="$advertise" :canEdit="false"/>
+                <a href="{{ route('advertise.show', ['slug' => $advertise->slug]) }}" class="ad-item">
+                    <x-basic-ad :advertise="$advertise" :canEdit="false"/>
+                </a>
             @endforeach
         @endif
     

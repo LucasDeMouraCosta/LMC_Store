@@ -17,7 +17,7 @@ return new class extends Migration
         Schema::create('advertises', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('slug');
+            $table->string('slug')->unique();
             $table->decimal('price', 10,2);
             $table->boolean('negotiable')->default(false);
             $table->text('description');
@@ -27,6 +27,7 @@ return new class extends Migration
             $table->foreignIdFor(Category::class)->constrained();
             $table->foreignIdFor(State::class)->constrained();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

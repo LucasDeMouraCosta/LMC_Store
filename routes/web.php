@@ -1,12 +1,20 @@
 <?php
 
+use App\Http\Controllers\AdvertiseController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
+use App\Models\Advertise;
 use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', function () { return view('home');})->name('home');
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth');
+
+
+//ADVERTISE
+
+Route::get('/advertise/show/{slug}', [AdvertiseController::class, 'show'])->name('advertise.show');
+
 
 
 Route::middleware(['guest'])->group(function () {
@@ -37,4 +45,6 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/dashboard/my-account', [DashboardController::class, 'my_account_action'])->name('my_account_action');
     
     Route::get('/dashboard/my-ads', [DashboardController::class, 'my_ads'])->name('my_ads');
+
+    Route::get('/dashboard/ad/delete/{id}', [AdvertiseController::class, 'delete'])->name('advertise.delete');
 });

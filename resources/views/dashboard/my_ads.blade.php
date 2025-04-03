@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="/assets/myAccountStyle.css" />
     <link rel="stylesheet" href="/assets/myAdsStyle.css" />
 
-    <title>B7Store - Meus anúncios</title>
+    <title>LMC_Store - Meus anúncios</title>
   </head>
 
   <body>

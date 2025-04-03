@@ -1,18 +1,18 @@
 <div class="my-ad-item">
-    
-    @if(empty($canEdit) AND $advertise->user->id == Auth::user()->id)
+
+    @if(empty($canEdit) AND Auth::check() AND $advertise->user->id == Auth::user()->id)
         <span class="pill my-ad-pill">Meu Anúncio</span>
     @endif
 
     <div class="ad-image-area">
         @if(!empty($canEdit))
             <div class="ad-buttons">
-                <div class="ad-button">
-                <img src="/assets/icons/deleteIcon.png" />
-                </div>
-                <div class="ad-button">
-                <img src="/assets/icons/editIcon.png" />
-                </div>
+                <a href="{{ route('advertise.delete', ['id' => $advertise->id])}}" class="ad-button">
+                    <img src="/assets/icons/deleteIcon.png" />
+                </a>
+                <a class="ad-button">
+                    <img src="/assets/icons/editIcon.png" />
+                </a>
             </div>
         @endif
     <div

@@ -4,11 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Testing\Fluent\Concerns\Has;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class AdvertiseImage extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
     protected $fillable = [
         'id',
         'url',
