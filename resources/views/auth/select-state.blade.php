@@ -27,7 +27,7 @@
 
             <div class="state-label">Selecione o seu Estado</div>
             
-            <x-form.input-select-state />
+            <x-form.input-select-state :allStates=false />
 
           </div>
 

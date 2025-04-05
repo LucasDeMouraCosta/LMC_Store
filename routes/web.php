@@ -11,12 +11,6 @@ Route::get('/', function () { return view('home');})->name('home');
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth');
 
 
-//ADVERTISE
-
-Route::get('/advertise/show/{slug}', [AdvertiseController::class, 'show'])->name('advertise.show');
-
-
-
 Route::middleware(['guest'])->group(function () {
     
     //LOGIN AND REGISTER
@@ -48,3 +42,12 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/dashboard/ad/delete/{id}', [AdvertiseController::class, 'delete'])->name('advertise.delete');
 });
+
+
+
+//ADVERTISE
+
+Route::get('/advertise/show/{slug}', [AdvertiseController::class, 'show'])->name('advertise.show');
+Route::get('/advertise/search', [AdvertiseController::class, 'search'])->name('advertise.search');
+
+

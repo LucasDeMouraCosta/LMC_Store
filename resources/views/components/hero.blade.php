@@ -8,16 +8,10 @@
             type="text"
             placeholder="Estou procurando por..."
           />
-          <select class="categories-options">
 
-            <option selected hidden disabled value="">Categoria</option>
-            @foreach ($categories as $category)
-                <option value="{{ $category['value']}}">{{ $category['name'] }}</option>
-            @endforeach
-            
-          </select>
+          <x-form.input-select-category :allCategories=true />
 
-          <x-form.input-select-state />
+          <x-form.input-select-state :allStates=true />
 
           <button class="search-button">Procurar</button>
         </div>

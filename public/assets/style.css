@@ -298,6 +298,18 @@ main {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+.pill{
+  padding: 5px 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border-radius: 5px;
+}
+.my-ad-pill{
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  font-size: 11px;
+}
 /* 
 * /Ads
 */

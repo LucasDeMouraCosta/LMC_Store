@@ -10,6 +10,10 @@ use Illuminate\Http\Request;
 class AdvertiseController extends Controller
 {
 
+    public function search(){
+        return view('advertise.search');
+    }
+
     public function show(String $slug){
         $data['advertise'] = Advertise::where('slug', $slug)->first();
 
