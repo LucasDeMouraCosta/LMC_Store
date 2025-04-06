@@ -15,9 +15,9 @@ class AdvertiseList extends Component
     public $categorySelected = null;
 
     protected $queryString = [
-        'textSearch' => ['except' => ''],
-        'stateSelected' => ['except' => null],
-        'categorySelected' => ['except' => null],
+        'textSearch' => ['as' => 't', 'except' => ''],
+        'stateSelected' => ['as' => 's', 'except' => null],
+        'categorySelected' => ['as' => 'c', 'except' => null],
         'page' => ['except' => 1],
     ];
 
@@ -40,7 +40,7 @@ class AdvertiseList extends Component
             ->when($this->categorySelected, function ($query) {
                 $query->where('category_id', $this->categorySelected);
             })
-            ->paginate(1)->onEachSide(1);
+            ->orderBy('created_at', 'desc')->paginate(12)->onEachSide(1);
 
         return view('livewire.advertise-list', compact('filteredAdvertises'));
     }

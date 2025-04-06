@@ -12,12 +12,14 @@ class InputSelectState extends Component
     public $states;
     public $selectedState;
     public $allStates;
+    public $name;
 
-    public function __construct($selectedState = null, $allStates = false)
+    public function __construct($selectedState = null, $allStates = false, $name = null)
     {
         $this->states = State::all();
         $this->selectedState = $selectedState;
         $this->allStates = $allStates;
+        $this->name = $name;
     }
 
     /**

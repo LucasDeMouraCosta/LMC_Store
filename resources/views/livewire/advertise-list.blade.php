@@ -5,11 +5,11 @@
             <div class="options-area">
                 <div class="categories-area">
                     <p>Categoria</p>
-                    <x-form.input-select-category :allCategories=true />
+                    <x-form.input-select-category :allCategories=true name="c" />
                 </div>
                 <div class="states-area">
                     <p>Estados</p>
-                    <x-form.input-select-state :allStates=true />
+                    <x-form.input-select-state :allStates=true name="s" />
                 </div>
                 <button class="search-mobile-button">Procurar</button>
             </div>
@@ -21,7 +21,7 @@
 
             @if ($filteredAdvertises->isEmpty())
                 <div class="no-ads-message">
-                    <p>Não há anúncios recentes para exibir.</p>
+                    <p>Nenhum resultado encontrado.</p>
                 </div>
             @else
                 @foreach ($filteredAdvertises as $filtered_advertise)

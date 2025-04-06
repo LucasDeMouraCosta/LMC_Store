@@ -85,7 +85,7 @@
               </div> --}}
               <div class="state-area">
                 <div class="state-label">Estado</div>
-                <x-form.input-select-state :selectedState="$user->state_id" :allStates=false />
+                <x-form.input-select-state :selectedState="$user->state_id" :allStates=false name="state_id" />
                     @error('state_id')
                         <div class="error">
                         {{ $message }}

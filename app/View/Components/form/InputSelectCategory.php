@@ -12,12 +12,14 @@ class InputSelectCategory extends Component
     public $categories;
     public $selectedCategory;
     public $allCategories;
+    public $name;
 
-    public function __construct($selectedCategory = null, $allCategories = false)
+    public function __construct($selectedCategory = null, $allCategories = false, $name = null)
     {
         $this->categories = Category::all();
         $this->selectedCategory = $selectedCategory;
         $this->allCategories = $allCategories;
+        $this->name = $name;
     }
 
     /**
