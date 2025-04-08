@@ -3,6 +3,8 @@
 namespace App\Livewire;
 
 use App\Models\Advertise;
+use App\Models\Category;
+use App\Models\State;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -35,10 +37,14 @@ class AdvertiseList extends Component
                 $query->where('title', 'like', '%' . $this->textSearch . '%');
             })
             ->when($this->stateSelected, function ($query) {
-                $query->where('state_id', $this->stateSelected);
+                $state = State::where('initials', $this->stateSelected)->first();
+
+                $query->where('state_id', $state->id);
             })
             ->when($this->categorySelected, function ($query) {
-                $query->where('category_id', $this->categorySelected);
+                $category = Category::where('slug', $this->categorySelected)->first();
+                
+                $query->where('category_id', $category->id);
             })
             ->orderBy('created_at', 'desc')->paginate(12)->onEachSide(1);
 

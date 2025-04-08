@@ -11,7 +11,7 @@
                     <p>Estados</p>
                     <x-form.input-select-state :allStates=true name="s" />
                 </div>
-                <button class="search-mobile-button">Procurar</button>
+                {{-- <button class="search-mobile-button">Procurar</button> --}}
             </div>
         </div>
     </div>

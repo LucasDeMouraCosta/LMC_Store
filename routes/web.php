@@ -44,10 +44,10 @@ Route::middleware(['auth'])->group(function () {
 });
 
 
-
 //ADVERTISE
 
 Route::get('/advertise/show/{slug}', [AdvertiseController::class, 'show'])->name('advertise.show');
 Route::get('/advertise/search', [AdvertiseController::class, 'search'])->name('advertise.search');
+
 
 
