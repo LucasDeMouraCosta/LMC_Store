@@ -200,11 +200,8 @@ main {
   display: flex;
   justify-content: space-between;
 }
-.buttons .cars,
-.buttons .eletronics,
-.buttons .clothes,
-.buttons .sports,
-.buttons .babies {
+.buttons .category-selected,
+.buttons .category {
   width: 17%;
   aspect-ratio: 17/5;
   display: flex;
@@ -213,7 +210,7 @@ main {
   cursor: pointer;
   border: 0;
 }
-.buttons .cars {
+.buttons .category-selected {
   background-color: #5c7bfa;
   color: #fff;
   font-size: 16px;
@@ -222,18 +219,12 @@ main {
   line-height: normal;
   border: 0;
 }
-.buttons .eletronics,
-.buttons .clothes,
-.buttons .sports,
-.buttons .babies {
+.buttons .category {
   background-color: #f5f7ff;
   color: #5c7bfa;
 }
-.buttons .cars img,
-.buttons .eletronics img,
-.buttons .clothes img,
-.buttons .sports img,
-.buttons .babies img {
+.buttons .category-selected img,
+.buttons .category img {
   margin-right: 8px;
 }
 /* 
@@ -420,12 +411,9 @@ footer span:last-child {
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
   }
-  .buttons .cars,
-  .buttons .eletronics,
-  .buttons .clothes,
-  .buttons .sports,
-  .buttons .babies {
-    width: 100%;
+  .buttons .category-selected,
+  .buttons .category {
+     width: 100%;
   }
   .ads-area {
     grid-template-columns: repeat(2, 1fr);
@@ -477,11 +465,8 @@ footer span:last-child {
     width: 90%;
     grid-template-columns: repeat(2, 1fr);
   }
-  .buttons .cars,
-  .buttons .eletronics,
-  .buttons .clothes,
-  .buttons .sports,
-  .buttons .babies {
+  .buttons .category-selected,
+  .buttons .category {
     width: 158px;
     height: 72px;
   }

@@ -15,7 +15,7 @@ class CategoriesSeeder extends Seeder
     {
         $categories = [
             ['name' => 'Carros', 'slug' => 'carros', 'icon' => '/assets/icons/carIcon.png'],
-            ['name' => 'Eletrônicos', 'slug' => 'eletronicos', 'icon' => '/assets/icons/electronicIcon.png'],
+            ['name' => 'Eletrônicos', 'slug' => 'eletronicos', 'icon' => '/assets/icons/eletronicsIcon.png'],
             ['name' => 'Roupas', 'slug' => 'roupas', 'icon' => '/assets/icons/clothesIcon.png'],
             ['name' => 'Esportes', 'slug' => 'esportes', 'icon' => '/assets/icons/sportsIcon.png'],
             ['name' => 'Bêbes', 'slug' => 'bebes', 'icon' => '/assets/icons/babiesIcon.png'],

@@ -20,6 +20,8 @@
 
         <x-hero/>
 
+        <livewire:categories-list/>
+
         <x-filtered-advertises/>
 
     </main>
