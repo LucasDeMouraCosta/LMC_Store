@@ -10,9 +10,8 @@ use Illuminate\Http\Request;
 
 class AdvertiseController extends Controller
 {
-
-    public function search(){
-        return view('advertise.search');
+    public function create(){
+        return view('advertise.create');
     }
 
     public function show(String $slug){
@@ -34,6 +33,10 @@ class AdvertiseController extends Controller
             ->get();
 
         return view('advertise.show', $data);
+    }
+
+    public function search(){
+        return view('advertise.search');
     }
 
     public function delete(String $id){

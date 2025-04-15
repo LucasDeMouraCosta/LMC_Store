@@ -1,4 +1,11 @@
 <header>
+    
+    <script src="https://kit.fontawesome.com/33f54f3ac4.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+
+
     <div class="header-area">
         <a href="{{ route('home') }}" class="header-area-left">LMC_Store</a>
         <div class="header-area-right">
@@ -15,7 +22,7 @@
             </a>
         @endif
 
-        <a href="" class="announce-now">Anunciar agora →</a>
+        <a href="{{ route('advertise.create') }}" class="announce-now">Anunciar agora →</a>
         <img class="menu-icon" src="assets/icons/menuIcon.png" alt="Menu" />
         <div class="menu-mobile">
             <a href="myAccount.html" class="my-account-mobile">

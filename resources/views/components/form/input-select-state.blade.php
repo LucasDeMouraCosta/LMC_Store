@@ -7,7 +7,7 @@
         @if($name == 'state_id')
             <option value="{{ $state->id }}" @if($selectedState == $state->id) selected @endif>{{ $state->name }}</option>
         @elseif($name == 's')
-            <option value="{{ $state->initials }}" @if($selectedState == $state->slug) selected @endif>{{ $state->name }}</option>
+            <option value="{{ $state->initials }}" @if($selectedState == $state->initials) selected @endif>{{ $state->name }}</option>
         @endif
 
     @endforeach

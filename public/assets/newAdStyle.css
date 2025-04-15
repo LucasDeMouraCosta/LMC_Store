@@ -45,9 +45,21 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
-  border: 1.5px dashed #5c7bfa;
+  flex-direction: row;
+  border: 1.5px dashed #96a3ab;
   background: rgba(245, 247, 255, 0.4);
+}
+.area-left-up-img-add {
+  cursor: pointer;   
+}
+.area-left-up-img-add:hover{
+  border: 2.5px dashed #5c7bfa;
+}
+.area-left-up-img img {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain; /* mostra tudo sem cortar */
+  border-radius: 8px;
 }
 .area-left-up-img-text {
   width: 192px;
@@ -61,6 +73,35 @@
   cursor: pointer;
   color: #5c7bfa;
 }
+.nav-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.nav-left {
+  left: 10px;
+}
+
+.nav-right {
+  right: 10px;
+}
+
+.nav-button:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
 .area-left-bottom {
   margin-top: 36px;
   display: grid;
@@ -69,14 +110,72 @@
 }
 .smallpics {
   width: 100%;
+  margin-bottom: 10px;
   aspect-ratio: 1/1;
   display: flex;
   justify-content: center;
   align-items: center;
   border: 1.5px dashed #96a3ab;
+  position:relative;
 }
-.smallpics img {
+.smallpics-add{
   width: 100%;
+  margin-bottom: 10px;
+  aspect-ratio: 1/1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1.5px dashed #96a3ab;
+  cursor: pointer;
+  color: #5c7bfa;
+}
+.smallpics-add:hover{
+  border: 2.5px dashed #5c7bfa;
+}
+.smallpics.active {
+  border: 2px solid #5c7bfa;
+  color: #5c7bfa;
+}
+
+.smallpics img {
+  /* width: 100%; */
+  max-height: 122px;
+  max-width: 122px;
+}
+.remove-btn {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 5px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.remove-btn i {
+  color: #5c7bfa;
+  transition: all 0.3s ease;
+}
+
+.remove-btn i:hover {
+  color: #ff3838;
+}
+.movePhoto{
+  border: none;
+  color: #5c7bfa;
+  bottom: -25px; 
+}
+.movePhoto:hover{
+  color: #0032fc;
+  transition: all 0.3s ease;
 }
 .newAd-area-right {
   width: 80%;

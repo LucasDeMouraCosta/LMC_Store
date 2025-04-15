@@ -1,6 +1,6 @@
-<select wire:model.live="categorySelected" class="categories-options" name="{{ $name }}" id="category_id">
+<select wire:model.live="categorySelected" class="categories-options newAd-categories" name="{{ $name }}" id="category_id" {{ ($required) ? 'required' : '' }}>
     
-    <option value="" @if(!$allCategories) disabled @endif @if ($selectedCategory == null) selected @endif> @if(!$allCategories) Categoria @else Todas Categorias @endif</option>
+    <option value="" @if ($selectedCategory == null) selected @endif> @if(!$allCategories) Categoria @else Todas Categorias @endif</option>
     
     @foreach($categories as $category)
 
