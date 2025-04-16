@@ -24,6 +24,7 @@ class AdvertiseCreate extends Component
     public $allPhotos = [];
     public $featuredPhotoIndex = 0;
 
+    protected $listeners = ['updatePrice'];
 
     protected $rules = [
         'title' => 'required|min:8|max:255',
@@ -36,6 +37,10 @@ class AdvertiseCreate extends Component
 
     public function render(){
         return view('livewire.advertise-create');
+    }
+
+    public function updatePrice($price){
+        $this->price = $price;
     }
 
     public function updatedPhotos($newPhotos){
@@ -131,7 +136,7 @@ class AdvertiseCreate extends Component
     public function save(){
         $this->price = str_replace(['.', ','], ['', '.'], $this->price);
         $this->price = (float) $this->price;
-    
+        
         $this->validate();
     
         $slug = Str::slug($this->title);
@@ -180,6 +185,11 @@ class AdvertiseCreate extends Component
             }
         }
 
-        dd($advertise, $advertise->images);
+        $this->reset();
+
+        $this->dispatch('advertise-create', [
+            'message' => 'Anúncio criado com sucesso!',
+            'redirect' => route('my_ads')
+        ]);
     }
 }

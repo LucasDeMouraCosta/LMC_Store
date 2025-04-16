@@ -33,7 +33,7 @@
                     @error('photos')
                         <div class="error">{{ $message }}</div>
                     @enderror
-                    
+
                     @error('photos.*')
                         <div class="error">{{ $message }}</div>
                     @enderror
@@ -134,9 +134,18 @@
 
     <script>
 
-        $('document').ready(function () {
+        document.addEventListener('DOMContentLoaded', function () {
+            const priceInput = document.getElementById('price-input');
+
+            // Aplica a máscara no campo de preço
             $('#price-input').mask('#.##0,00', {
                 reverse: true
+            });
+
+            // Remove a formatação antes de enviar o valor ao Livewire
+            priceInput.addEventListener('input', function () {
+                const rawValue = priceInput.value.replace(/[.,]/g, ''); // Remove '.' e ','
+                priceInput.dispatchEvent(new CustomEvent('input', { bubbles: true })); // Atualiza o Livewire
             });
         });
 
@@ -167,7 +176,7 @@
                 Swal.fire({
                     icon: 'warning',
                     title: 'Limite atingido',
-                    text: `Você já atingiu o limite de ${MAX_FILES} fotos.`,
+                    text: `Você já atingiu o limite de ${MAX_FILES} fotos. Remova alguma para enviar mais.`,
                 });
                 fileUpload.value = '';
                 return;
@@ -192,8 +201,23 @@
                 const dataTransfer = new DataTransfer();
                 filesToUpload.forEach(file => dataTransfer.items.add(file));
                 fileUpload.files = dataTransfer.files;
+            } else {
+                fileUpload.value = '';
             }
         }
+
+
+        window.addEventListener('advertise-create', event => {
+            Swal.fire({
+                icon: 'success',
+                title: 'Sucesso!',
+                text: event.detail[0].message,
+                confirmButtonText: 'OK'
+            }).then(() => {
+                window.location.href = event.detail[0].redirect;
+            });
+        });
+
     </script>
 
 </main>

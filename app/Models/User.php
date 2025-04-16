@@ -55,6 +55,6 @@ class User extends Authenticatable
     }
 
     public function advertises() : HasMany{
-        return $this->hasMany(Advertise::class);
+        return $this->hasMany(Advertise::class)->orderBy('created_at', 'desc');
     }
 }
