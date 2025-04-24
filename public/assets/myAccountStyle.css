@@ -10,7 +10,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 184px;
+  width: 20%;
   border-right: 1.5px solid #e7e9ed;
   padding-top: 50px;
 }
@@ -20,22 +20,36 @@
   text-decoration: none;
   color: #96a3ab;
 }
-.sidebar img {
+.sidebar i {
   margin-right: 8px;
+  font-size: 22px;
 }
-.sidebar-top .config {
-  color: #5c7bfa;
+.sidebar-top .sidebar-item{
   font-size: 16px;
   font-weight: 500;
   line-height: normal;
-  margin-bottom: 56px;
+  margin-bottom: 28px;
+  padding-left: 15px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid #96a3ab;
+}
+.sidebar-top .sidebar-item-active {
+  color: #5c7bfa;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: normal;
+  margin-bottom: 28px;
+  padding-left: 15px;
+  padding-bottom: 28px;
+  border-bottom: 2px solid #5c7bfa;
 }
 .sidebar-bottom {
   margin-bottom: 72px;
 }
 .profile-area {
-  margin-left: 128px;
   padding-top: 50px;
+  margin-left: 50px;
+  width: 100%;
 }
 .profile-title {
   color: #3c4952;
@@ -106,6 +120,100 @@ form {
   cursor: pointer;
   margin-bottom: 90px;
 }
+.contact-card {
+  border: 1px solid #e0e0e0;
+  border-radius: 1px;
+  padding: 16px 20px;
+  margin-bottom: 20px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
+  max-width: 450px;
+  display: flex;
+  justify-content: space-between;
+  overflow: hidden;
+
+  /* Transições gerais */
+  transition: 
+    opacity 0.4s ease,
+    height 0.4s ease,
+    margin 0.4s ease,
+    padding 0.4s ease,
+    transform 0.4s ease;
+  
+  /* Estilo inicial para animação de entrada */
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+/* Quando está escondendo */
+.contact-card.hidden {
+  opacity: 0;
+  height: 0;
+  margin: 0;
+  padding: 0;
+  pointer-events: none;
+}
+
+/* Quando deve aparecer animando */
+.contact-card.showing {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.contact-card-left {
+  flex: 1; /* Ocupa o máximo possível */
+  min-width: 0; /* Evita quebra de layout */
+  width: 65%;
+}
+
+.contact-card-header {
+  margin-bottom: 8px;
+}
+
+.contact-label {
+  font-size: 16px;
+  font-weight: 600;
+  color: #5c7bfa;
+  margin: 0;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+.contact-number {
+  font-size: 14px;
+  color: #444;
+  margin: 0;
+  word-break: break-word;
+}
+
+.contact-card-right{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  width: 35%;
+}
+
+.contact-actions .btn-contact{
+  color: #5c7bfa;
+  cursor: pointer;
+  margin: 10px;
+  padding: 6px;
+  font-size: 22px;
+  transition: all 0s ease;
+}
+
+.btn-edit:hover{
+  color: #38bb38;
+  transition: all 0.3s ease;
+}
+
+.btn-delete:hover{
+  color: #ff3838;
+  transition: all 0.3s ease;
+}
+
 footer{
   margin-top: 0;
 }

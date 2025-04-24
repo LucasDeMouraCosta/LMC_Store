@@ -57,4 +57,8 @@ class User extends Authenticatable
     public function advertises() : HasMany{
         return $this->hasMany(Advertise::class)->orderBy('created_at', 'desc');
     }
+
+    public function contacts() : HasMany{
+        return $this->hasMany(UserContact::class);
+    }
 }

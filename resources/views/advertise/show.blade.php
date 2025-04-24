@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="/assets/style.css" />
     <link rel="stylesheet" href="/assets/adPageStyle.css" />
     <link rel="stylesheet" href="/assets/adsListStyle.css" />
-    @livewireStyles()
     <title>LMC_Store</title>
   </head>
 
@@ -44,7 +43,7 @@
             {{ $advertise->description }}
           </div>
 
-          <button onclick="contactButton('{{ $advertise->contact }}', '{{ $advertise->title }}')" class="get-touch">Entrar em contato</button>
+          <button onclick="contactButton('{{ $advertise->user_contact->number }}', '{{ $advertise->title }}')" class="get-touch">Entrar em contato</button>
 
           <div class="views">
             <img src="/assets/icons/eyeGrayIcon.png" />
@@ -71,8 +70,6 @@
     </main>
     
     <x-base.footer />
-
-    @livewireScripts()
   </body>
 </html>
 

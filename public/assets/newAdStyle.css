@@ -190,6 +190,7 @@ form {
 .value-area-text,
 .negotiable-label,
 .newAd-categories-label,
+.newAd-states-label,
 .description-label {
   color: #3c4952;
   font-size: 14px;
@@ -198,6 +199,7 @@ form {
 }
 .title-area input {
   width: 100%;
+  height: 64px;
   aspect-ratio: 77/10;
   margin-bottom: 24px;
   color: #96a3ab;
@@ -238,8 +240,10 @@ form {
   outline: 0;
   border: 1.5px solid #e7e9ed;
 }
-.newAd-categories {
+.newAd-categories,
+.newAd-states {
   width: 100%;
+  height: 64px;
   aspect-ratio: 77/10;
   border: 1.5px solid #e7e9ed;
   color: #96a3ab;

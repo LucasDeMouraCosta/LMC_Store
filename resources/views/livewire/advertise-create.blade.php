@@ -94,7 +94,7 @@
                             @error('price')
                                 <div class="error">{{ $message }}</div>
                             @enderror
-                            <div class="value-area-text">Valor</div>
+                            <div class="value-area-text">Valor (R$)</div>
                             <input wire:model="price" id="price-input" type="text" placeholder="Digite o valor" required />
 
                         </div>
@@ -110,11 +110,22 @@
                         </div>
 
                     </div>
+
+                    <div class="newAd-states-area">
+                        @error('state_id')
+                            <div class="error">
+                            {{ $message }}
+                            </div>
+                        @enderror
+                        <div class="newAd-states-label">Estado</div>
+                        <x-form.input-select-state :selectedState="Auth::user()->state_id" :allStates=false name="state_id" />
+                    </div>
+
                     <div class="newAd-categories-area">
                         @error('selectedCategory')
                             <div class="error">{{ $message }}</div>
                         @enderror
-                        <div class="newAd-categories-label">Categorias</div>
+                        <div class="newAd-categories-label">Categoria</div>
                         <x-form.input-select-category :allCategories="false" required="true" name="category_id" />
 
                     </div>

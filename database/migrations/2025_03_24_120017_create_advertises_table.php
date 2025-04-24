@@ -21,7 +21,6 @@ return new class extends Migration
             $table->decimal('price', 10,2);
             $table->boolean('negotiable')->default(false);
             $table->text('description');
-            $table->string('contact');
             $table->integer('views')->default(0);
             $table->foreignIdFor(User::class)->constrained();
             $table->foreignIdFor(Category::class)->constrained();

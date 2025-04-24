@@ -18,10 +18,10 @@ class Advertise extends Model
         'price',
         'negotiable',
         'description',
-        'contact',
         'views',
         'state_id',
         'user_id',
+        'user_contact_id',
         'category_id',
     ];
 
@@ -43,5 +43,9 @@ class Advertise extends Model
 
     public function featured_image(){
         return $this->hasOne(AdvertiseImage::class)->where('featured', true);
+    }
+
+    public function user_contact(){
+        return $this->belongsTo(UserContact::class);
     }
 }

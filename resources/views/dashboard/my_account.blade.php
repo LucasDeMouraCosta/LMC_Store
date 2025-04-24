@@ -18,21 +18,9 @@
 
     <main>
         <div class="my-account-page">
-          <div class="sidebar">
-            <div class="sidebar-top">
-              <a href="{{ route('my_account') }}" class="config"
-                ><img src="/assets/icons/configIcon.png" /> Configurações</a
-              >
-              <a href="{{ route('my_ads') }}"
-                ><img src="/assets/icons/layersIonGray.png" /> Meus Anúncios</a
-              >
-            </div>
-            <div class="sidebar-bottom">
-              <a href="{{route('logout')}}"
-                ><img src="/assets/icons/logoutIcon.png" /> Sair</a
-              >
-            </div>
-          </div>
+          
+          <x-dashboard.sidebar />
+          
           <div class="profile-area">
             <h3 class="profile-title">Meu perfil</h3>
 

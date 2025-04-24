@@ -17,6 +17,7 @@ class AdvertiseCreate extends Component
     public $title;
     public $description;
     public $price;
+    public $stateSelected;
     public $categorySelected;
     public $negotiable = '0';
     public $photos = [];
@@ -31,9 +32,14 @@ class AdvertiseCreate extends Component
         'description' => 'required|min:8|max:500',
         'price' => 'required|numeric|min:0',
         'categorySelected' => 'required|exists:categories,id',
+        'stateSelected' => 'required|exists:states,id',
         'photos' => 'array|max:10',
         'photos.*' => 'image|max:2048', // 2MB Max
     ];
+
+    public function mount(){
+        $this->stateSelected = Auth::user()->state_id;
+    }
 
     public function render(){
         return view('livewire.advertise-create');
@@ -152,10 +158,9 @@ class AdvertiseCreate extends Component
             'slug' => $slug,
             'price' => $this->price,
             'description' => $this->description,
-            'contact' => '',
             'category_id' => $this->categorySelected,
             'user_id' => Auth::id(),
-            'state_id' => Auth::user()->state_id,
+            'state_id' => $this->stateSelected,
             'negotiable' => $this->negotiable,
             
         ]);
