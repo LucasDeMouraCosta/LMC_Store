@@ -8,6 +8,22 @@
     @endif
 
     <script>
+
+        Livewire.on('editingContact', function () {
+            setTimeout(() => {
+                
+                $('#numberInput').mask('(00) 00000-0000');
+
+            }, 100);
+        });
+
+        Livewire.on('apply-mask', function () {
+            setTimeout(() => {
+                $('#numberInput').unmask();
+                $('#numberInput').mask('(00) 00000-0000');
+            }, 1);
+        });
+
         Livewire.on('confirmingDelete', data => {
             Swal.fire({
                 title: 'Tem certeza?',
@@ -37,13 +53,5 @@
             });
         }
 
-        function mostrarTodosOsContatos() {
-            const todosCards = document.querySelectorAll('.contact-card');
-
-            todosCards.forEach(card => {
-                card.classList.remove('hidden'); // tira a classe de saída
-                setTimeout(() => card.classList.add('showing'), 10); // anima para aparecer
-            });
-        }
     </script>
 </div>
