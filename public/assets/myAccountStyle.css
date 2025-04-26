@@ -125,6 +125,27 @@ form {
   cursor: pointer;
   margin-bottom: 90px;
 }
+.create-contact-button i{
+  margin-right: 8px;
+  font-size: 16px;
+}
+.create-contact-button .btn-create-contact{
+  width: 236px;
+  height: 40px;
+  background-color: #fff;
+  color: #5c7bfa;
+  border: 1.5px solid #5c7bfa;
+  border-radius: 2px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+.create-contact-button .btn-create-contact:hover{
+  background-color: #5c7bfa;
+  color: #fff;
+  transition: all 0.3s ease;
+}
 .contact-card {
   border: 1px solid #e0e0e0;
   border-radius: 1px;

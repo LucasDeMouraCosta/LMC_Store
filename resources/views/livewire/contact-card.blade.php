@@ -41,7 +41,7 @@
         <div class="contact-card-right">
             <div class="contact-actions">
                 <a class="btn-contact btn-edit" wire:click="edit"
-                    onclick="mostrarSomenteEsteContato(event, {{ $contact->id }})">
+                    onclick="showingOnlyThisContact(event, {{ $contact->id }})">
                     <i class="fa-solid fa-pen-to-square"></i>
                 </a>
 

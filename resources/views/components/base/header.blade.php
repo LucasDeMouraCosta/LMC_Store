@@ -23,7 +23,7 @@
         @endif
 
         <a href="{{ route('advertise.create') }}" class="announce-now">Anunciar agora →</a>
-        <img class="menu-icon" src="assets/icons/menuIcon.png" alt="Menu" />
+        <img class="menu-icon" src="/assets/icons/menuIcon.png" alt="Menu" />
         <div class="menu-mobile">
             <a href="myAccount.html" class="my-account-mobile">
             <img src="/assets/icons/userIcon.png" alt="Ícone do usuário" />

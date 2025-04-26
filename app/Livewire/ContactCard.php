@@ -2,7 +2,9 @@
 
 namespace App\Livewire;
 
+use Illuminate\Validation\Rule;
 use Livewire\Component;
+use Illuminate\Support\Facades\Auth;
 
 class ContactCard extends Component
 {
@@ -49,10 +51,22 @@ class ContactCard extends Component
     
         $this->dispatch('apply-mask');
         
-        
         $validated = $this->validate([
-            'labelEdit' => 'required|string|max:255',
-            'numberEdit' => ['required', 'digits:11'],
+            'labelEdit' => [
+                'required',
+                'string',
+                'max:30',
+                Rule::unique('user_contacts', 'label')->ignore($this->contact->id)->where(function ($query) {
+                    return $query->where('user_id', Auth::user()->id);
+                }),
+            ],
+            'numberEdit' => [
+                'required',
+                'digits:11',
+                Rule::unique('user_contacts', 'number')->ignore($this->contact->id)->where(function ($query) {
+                    return $query->where('user_id', Auth::user()->id);
+                }),
+            ],
         ], [], [
             'labelEdit' => 'Descrição do contato', 
             'numberEdit' => 'Telefone',
