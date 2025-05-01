@@ -238,6 +238,7 @@ return [
         'birth_date' => 'data de nascimento',
         'photos' => 'fotos',
         'negotiable' => 'negociável',
+        'user_contact_id' => 'contato',
     ],
 
 ];

@@ -5,10 +5,12 @@ namespace App\Livewire;
 use App\Models\Advertise;
 use App\Models\AdvertiseImage;
 use App\Models\User;
+use App\Models\UserContact;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Illuminate\Support\Str;
+use Illuminate\Validation\Rule;
 
 class AdvertiseCreate extends Component
 {
@@ -18,6 +20,7 @@ class AdvertiseCreate extends Component
     public $description;
     public $price;
     public $stateSelected;
+    public $user_contact_id;
     public $categorySelected;
     public $negotiable = '0';
     public $photos = [];
@@ -27,18 +30,43 @@ class AdvertiseCreate extends Component
 
     protected $listeners = ['updatePrice'];
 
-    protected $rules = [
-        'title' => 'required|min:8|max:255',
-        'description' => 'required|min:8|max:500',
-        'price' => 'required|numeric|min:0',
-        'categorySelected' => 'required|exists:categories,id',
-        'stateSelected' => 'required|exists:states,id',
-        'photos' => 'array|max:10',
-        'photos.*' => 'image|max:2048', // 2MB Max
-    ];
+    // protected $rules = [
+    //     'title' => 'required|min:8|max:255',
+    //     'description' => 'required|min:8|max:500',
+    //     'price' => 'required|numeric|min:0',
+    //     'categorySelected' => 'required|exists:categories,id',
+    //     'stateSelected' => 'required|exists:states,id',
+    //     'user_contact_id' => [
+    //         'required',
+    //         Rule::exists('user_contacts', 'id')->where(function ($query) {
+    //             $query->where('user_id', Auth::id());
+    //         }),
+    //     ],
+    //     'photos' => 'array|max:10',
+    //     'photos.*' => 'image|max:2048', // 2MB Max
+    // ];
+
+    public function rules(){
+        return [
+            'title' => 'required|min:8|max:255',
+            'description' => 'required|min:8|max:500',
+            'price' => 'required|numeric|min:0',
+            'categorySelected' => 'required|exists:categories,id',
+            'stateSelected' => 'required|exists:states,id',
+            'user_contact_id' => [
+                'required',
+                Rule::exists('user_contacts', 'id')->where(function ($query) {
+                    $query->where('user_id', Auth::id());
+                }),
+            ],
+            'photos' => 'array|max:10',
+            'photos.*' => 'image|max:2048', // 2MB Max
+        ];
+    }
 
     public function mount(){
         $this->stateSelected = Auth::user()->state_id;
+        $this->user_contact_id = UserContact::where('user_id', Auth::user()->id)->orderBy('label')->first()->id;
     }
 
     public function render(){
@@ -160,6 +188,7 @@ class AdvertiseCreate extends Component
             'description' => $this->description,
             'category_id' => $this->categorySelected,
             'user_id' => Auth::id(),
+            'user_contact_id' => $this->user_contact_id,
             'state_id' => $this->stateSelected,
             'negotiable' => $this->negotiable,
             

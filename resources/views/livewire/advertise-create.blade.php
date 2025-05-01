@@ -121,6 +121,16 @@
                         <x-form.input-select-state :selectedState="Auth::user()->state_id" :allStates=false name="state_id" />
                     </div>
 
+                    <div class="newAd-contact-area">
+                        @error('user_contact_id')
+                            <div class="error">
+                            {{ $message }}
+                            </div>
+                        @enderror
+                        <div class="newAd-contacts-label">Contato</div>
+                        <x-form.input-select-contact />
+                    </div>
+
                     <div class="newAd-categories-area">
                         @error('selectedCategory')
                             <div class="error">{{ $message }}</div>
