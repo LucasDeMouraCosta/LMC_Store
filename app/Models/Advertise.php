@@ -38,11 +38,11 @@ class Advertise extends Model
     }
 
     public function images(){
-        return $this->hasMany(AdvertiseImage::class);
+        return $this->hasMany(AdvertiseImage::class)->orderBy('sequence_number');
     }
 
     public function featured_image(){
-        return $this->hasOne(AdvertiseImage::class)->where('featured', true);
+        return $this->hasOne(AdvertiseImage::class)->where('sequence_number', 0);
     }
 
     public function user_contact(){

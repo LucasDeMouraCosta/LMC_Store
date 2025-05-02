@@ -214,7 +214,8 @@ class AdvertiseCreate extends Component
                 AdvertiseImage::create([
                     'advertise_id' => $advertise->id,
                     'url' => '/assets/advertises_images/' .  $filename,
-                    'featured' => ($index == 0) ? 1 : 0,
+                    'sequence_number' => $index,
+                    // 'featured' => ($index == 0) ? 1 : 0,
                 ]);
             }
         }

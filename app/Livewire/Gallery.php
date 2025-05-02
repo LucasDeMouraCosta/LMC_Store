@@ -12,7 +12,7 @@ class Gallery extends Component
 
     public function mount($images){
         $this->images = collect($images);
-        $this->featuredUrl = $this->images->firstWhere('featured', 1)?->url ?? '/assets/icons/imageIcon.png';
+        $this->featuredUrl = $this->images->firstWhere('sequence_number', 0)?->url ?? '/assets/icons/imageIcon.png';
         $this->currentIndex = $this->images->search(fn ($image) => $image['url'] === $this->featuredUrl) ?? 0;
     }
 
