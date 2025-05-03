@@ -40,12 +40,12 @@
 
         <div class="contact-card-right">
             <div class="contact-actions">
-                <a class="btn-contact btn-edit" wire:click="edit"
-                    onclick="showingOnlyThisContact(event, {{ $contact->id }})">
+                <a class="btn-contact btn-edit" wire:click="edit" title="Editar contato"
+                    onclick="showingOnlyThisContact(event, {{ $contact->id }})" >
                     <i class="fa-solid fa-pen-to-square"></i>
                 </a>
 
-                <a class="btn-contact btn-delete" wire:click="confirmDelete">
+                <a class="btn-contact btn-delete" wire:click="confirmDelete" title="Excluir contato">
                     <i class="fa-solid fa-trash"></i>
                 </a>
             </div>

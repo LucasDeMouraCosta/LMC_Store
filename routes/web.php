@@ -3,7 +3,6 @@
 use App\Http\Controllers\AdvertiseController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
-use App\Models\Advertise;
 use Illuminate\Support\Facades\Route;
 
 
@@ -45,6 +44,7 @@ Route::middleware(['auth'])->group(function () {
     //ADVERTISE
 
     Route::get('/dashboard/advertise/create', [AdvertiseController::class, 'create'])->name('advertise.create');
+    Route::get('/dashboard/advertise/edit/{slug}', [AdvertiseController::class, 'edit'])->name('advertise.edit');
 
     Route::get('/dashboard/advertise/delete/{id}', [AdvertiseController::class, 'delete'])->name('advertise.delete');
     

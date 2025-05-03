@@ -14,6 +14,21 @@ class AdvertiseController extends Controller
         return view('advertise.create');
     }
 
+    public function edit(String $slug){
+
+        $advertise = Advertise::where('slug', $slug)->first();
+        
+        if(!$advertise){
+            return redirect()->back()->with('error', 'O Anúncio não foi encontrado.');
+        }
+    
+        if($advertise->user_id != Auth::user()->id){
+            return redirect()->back()->with('error', 'Você não tem autorização para editar esse Anúncio.');
+        }
+
+        return view('advertise.edit', compact('advertise'));
+    }
+
     public function show(String $slug){
         $data['advertise'] = Advertise::where('slug', $slug)->first();
 

@@ -260,6 +260,11 @@ form {
   color: #fff;
 }
 
+.btn-contact:hover i{
+  transform: scale(1.15);
+  transition: all 0.3s ease;
+}
+
 .btn-edit:hover{
   color: #38bb38;
   transition: all 0.3s ease;

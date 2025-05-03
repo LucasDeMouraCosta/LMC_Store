@@ -9,7 +9,7 @@
     />
     <link rel="stylesheet" href="/assets/style.css" />
     <link rel="stylesheet" href="/assets/myAccountStyle.css" />
-    <title>LMC_Store</title>
+    <title>LMC_Store - Meus Contatos</title>
   </head>
 
   <body>

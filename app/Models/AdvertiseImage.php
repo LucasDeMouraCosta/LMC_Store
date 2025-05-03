@@ -14,6 +14,5 @@ class AdvertiseImage extends Model
         'url',
         'advertise_id',
         'sequence_number',
-        // 'featured',
     ];
 }

@@ -28,24 +28,6 @@ class AdvertiseCreate extends Component
     public $allPhotos = [];
     public $featuredPhotoIndex = 0;
 
-    protected $listeners = ['updatePrice'];
-
-    // protected $rules = [
-    //     'title' => 'required|min:8|max:255',
-    //     'description' => 'required|min:8|max:500',
-    //     'price' => 'required|numeric|min:0',
-    //     'categorySelected' => 'required|exists:categories,id',
-    //     'stateSelected' => 'required|exists:states,id',
-    //     'user_contact_id' => [
-    //         'required',
-    //         Rule::exists('user_contacts', 'id')->where(function ($query) {
-    //             $query->where('user_id', Auth::id());
-    //         }),
-    //     ],
-    //     'photos' => 'array|max:10',
-    //     'photos.*' => 'image|max:2048', // 2MB Max
-    // ];
-
     public function rules(){
         return [
             'title' => 'required|min:8|max:255',
@@ -73,10 +55,6 @@ class AdvertiseCreate extends Component
         return view('livewire.advertise-create');
     }
 
-    public function updatePrice($price){
-        $this->price = $price;
-    }
-
     public function updatedPhotos($newPhotos){
 
         $this->allPhotos = collect($this->allPhotos)
@@ -88,8 +66,7 @@ class AdvertiseCreate extends Component
         $this->photos = $this->allPhotos;
     }
 
-    public function prevPhoto()
-    {
+    public function prevPhoto(){
         if ($this->featuredPhotoIndex > 0) {
             $this->featuredPhotoIndex--;
             return;
@@ -101,8 +78,7 @@ class AdvertiseCreate extends Component
             $this->featuredPhotoIndex = 0;
         }
     }
-    public function nextPhoto()
-    {
+    public function nextPhoto(){
         if ($this->featuredPhotoIndex < count($this->photos) - 1) {
             $this->featuredPhotoIndex++;
             return;
@@ -113,8 +89,7 @@ class AdvertiseCreate extends Component
         }
     }
 
-    public function deletePhoto($index)
-    {
+    public function deletePhoto($index){
         if ($index <= $this->featuredPhotoIndex && $this->featuredPhotoIndex !== 0) {
             $this->featuredPhotoIndex--;
         }
@@ -132,7 +107,6 @@ class AdvertiseCreate extends Component
 
         $this->allPhotos = $this->photos;
     }
-    
 
     public function movePhotoLeft($index){
         if ($index > 0) {
@@ -166,12 +140,17 @@ class AdvertiseCreate extends Component
         }
     }
 
-
     public function save(){
+        $originalPrice = $this->price;
         $this->price = str_replace(['.', ','], ['', '.'], $this->price);
         $this->price = (float) $this->price;
         
-        $this->validate();
+        try {
+            $this->validate();
+        } catch (\Exception $e) {
+            $this->price = $originalPrice;
+            throw $e;
+        }
     
         $slug = Str::slug($this->title);
         $originalSlug = $slug;
@@ -215,7 +194,6 @@ class AdvertiseCreate extends Component
                     'advertise_id' => $advertise->id,
                     'url' => '/assets/advertises_images/' .  $filename,
                     'sequence_number' => $index,
-                    // 'featured' => ($index == 0) ? 1 : 0,
                 ]);
             }
         }

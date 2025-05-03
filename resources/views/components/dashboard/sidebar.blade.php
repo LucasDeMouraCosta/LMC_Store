@@ -3,7 +3,7 @@
 
         <a href="{{ route('my_account') }}" class="{{ request()->routeIs('my_account') ? 'sidebar-item-active' : 'sidebar-item' }}">
             <i class="fa-solid fa-gear"></i> 
-            Configurações
+            Meu Perfil
         </a>
 
         <a href="{{ route('my_ads') }}" class="{{ request()->routeIs('my_ads') ? 'sidebar-item-active' : 'sidebar-item' }}">

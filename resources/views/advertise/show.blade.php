@@ -39,9 +39,7 @@
             <div class="negociable">*Esse valor poderá ser negociado.</div>
           @endif
           
-          <div class="ad-page-text">
-            {{ $advertise->description }}
-          </div>
+          <div class="ad-page-text" style="white-space: pre-wrap;">{{$advertise->description}}</div>
 
           <button onclick="contactButton('{{ $advertise->user_contact->number }}', '{{ $advertise->title }}')" class="get-touch">Entrar em contato</button>
 
