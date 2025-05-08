@@ -54,7 +54,7 @@ class AdvertiseEdit extends Component
 
         $this->title = $advertise->title;
         $this->description = $advertise->description;
-        $this->price = $advertise->price;
+        $this->price = number_format($advertise->price, 2, ',', '.');
         $this->stateSelected = $advertise->state_id;
         $this->user_contact_id = $advertise->user_contact_id;
         $this->categorySelected = $advertise->category_id;
@@ -202,9 +202,11 @@ class AdvertiseEdit extends Component
         foreach ($this->photosToDelete as $photoId) {
             $image = $this->advertise->images()->find($photoId);
             if ($image) {
+                logger()->info('Deleting image BD: ' . $image->url);
                 // Remover o arquivo do armazenamento
-                if (Storage::exists($image->url)) {
-                    Storage::delete($image->url);
+                $imagePath = public_path($image->url); // Converte a URL para o caminho absoluto no sistema de arquivos
+                if (file_exists($imagePath)) {
+                    unlink($imagePath); // Remove o arquivo do sistema de arquivos
                 }
     
                 // Remover do banco de dados
