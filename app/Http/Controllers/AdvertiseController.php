@@ -56,16 +56,31 @@ class AdvertiseController extends Controller
 
     public function delete(String $id){
         $advertise = Advertise::find($id);
-        
-        if(!$advertise){
-            return redirect()->back()->with('error', 'O Anúncio não foi encontrado.');
+
+        if (!$advertise) {
+            return response()->json(['success' => false, 'message' => 'O Anúncio não foi encontrado.']);
         }
     
-        if($advertise->user_id != Auth::user()->id){
-            return redirect()->back()->with('error', 'Você não tem autorização para deletar esse Anúncio.');
+        if ($advertise->user_id != Auth::user()->id) {
+            return response()->json(['success' => false, 'message' => 'Você não tem autorização para deletar esse Anúncio.']);
         }
-
+    
+        $images = AdvertiseImage::where('advertise_id', $advertise->id)->get();
+    
+        if ($images) {
+            foreach ($images as $image) {
+                $imagePath = public_path($image->url);
+    
+                if (file_exists($imagePath)) {
+                    unlink($imagePath);
+                }
+    
+                $image->delete();
+            }
+        }
+    
         $advertise->delete();
-        return redirect()->back()->with('success', 'Anúncio deletado com sucesso!.');
+    
+        return response()->json(['success' => true, 'message' => 'Anúncio deletado com sucesso!']);
     }
 }

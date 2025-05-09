@@ -31,7 +31,7 @@
           <div class="email-area">
             
             <div class="email-label">E-mail</div>
-            <input type="email" name="email" placeholder="Digite o seu e-mail" value="{{ @old('email') }}" required/>
+            <input type="email" name="email" placeholder="Digite o seu e-mail" value="{{ @old('email') }}" tabindex="1" required/>
             
             @error('email')
               <div class="error">
@@ -45,10 +45,10 @@
 
             <div class="password-label">
               <div class="password-area-text">Senha</div>
-              <a href="{{ route('forgot_password') }}" class="password-area-forgot">Esqueceu sua senha?</a>
+              <a href="{{ route('forgot_password') }}" class="password-area-forgot" tabindex="3">Esqueceu sua senha?</a>
             </div>
 
-            <x-form.password-input name="password" placeholder="Digite a sua senha" id="password" />
+            <x-form.password-input name="password" placeholder="Digite a sua senha" id="password" tabindex="2" />
 
             @error('password')
               <div class="error">

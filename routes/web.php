@@ -46,7 +46,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard/advertise/create', [AdvertiseController::class, 'create'])->name('advertise.create');
     Route::get('/dashboard/advertise/edit/{slug}', [AdvertiseController::class, 'edit'])->name('advertise.edit');
 
-    Route::get('/dashboard/advertise/delete/{id}', [AdvertiseController::class, 'delete'])->name('advertise.delete');
+    Route::post('/dashboard/advertise/delete/{id}', [AdvertiseController::class, 'delete'])->name('advertise.delete');
     
 });
 

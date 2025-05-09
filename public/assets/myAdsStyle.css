@@ -76,8 +76,8 @@
   right: 15px;
 }
 .ad-button {
-  height: 42px;
-  width: 42px;
+  height: 34px;
+  width: 34px;
   background-color: rgba(0, 0, 0, 0.4);
   display: flex;
   align-items: center;
@@ -85,7 +85,7 @@
   cursor: pointer;
   margin-left: 8px;
   color: #fff;
-  font-size: 24px;
+  font-size: 18px;
   text-decoration: none;
 }
 

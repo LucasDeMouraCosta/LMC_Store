@@ -34,7 +34,7 @@
             </div>
 
             <div class="contact-card-body">
-                <p class="contact-number">{{ preg_replace('/(\d{2})(\d{5})(\d{4})/', '($1) $2-$3', $contact->number) }}</p>
+                <p class="contact-number">{{ $contact->formattedNumber }}</p>
             </div>
         </div>
 

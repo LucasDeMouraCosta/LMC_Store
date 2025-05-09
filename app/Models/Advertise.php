@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Carbon\Traits\Timestamp;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -47,5 +48,11 @@ class Advertise extends Model
 
     public function user_contact(){
         return $this->belongsTo(UserContact::class);
+    }
+
+    protected function formattedPrice(): Attribute{
+        return Attribute::make(
+            get: fn ($value, $attributes) => number_format($attributes['price'], 2, ',', '.')
+        );
     }
 }

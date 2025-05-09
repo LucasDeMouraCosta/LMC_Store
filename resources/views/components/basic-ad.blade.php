@@ -13,7 +13,10 @@
                 <a href="{{ route('advertise.edit', ['slug' => $advertise->slug])}}" title="Editar Anúncio" class="ad-button ad-edit-button">
                     <i class="fa-solid fa-pen-to-square"></i>
                 </a>
-                <a href="{{ route('advertise.delete', ['id' => $advertise->id])}}" title="Excluir Anúncio" class="ad-button ad-delete-button">
+                <a href="javascript:void(0)" 
+                    title="Excluir Anúncio" 
+                    class="ad-button ad-delete-button" 
+                    onclick="confirmDelete('{{ route('advertise.delete', ['id' => $advertise->id]) }}', '{{ $advertise->title }}')">
                     <i class="fa-solid fa-trash"></i>
                 </a>
             </div>
@@ -24,6 +27,6 @@
     ></div>
     </div>
     <div class="ad-title">{{ $advertise->title }}</div>
-    <div class="ad-price">R$ {{ number_format($advertise->price, 2, ',', '.') }}</div>
+    <div class="ad-price">R$ {{ $advertise->formattedPrice }}</div>
 
 </div>

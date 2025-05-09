@@ -45,4 +45,53 @@
     <x-base.footer />
 
   </body>
+
+  <script>
+      function confirmDelete(deleteUrl, adTitle) {
+          Swal.fire({
+              title: 'Tem certeza?',
+              html: `Deseja realmente excluir o anúncio <b>"${adTitle}"</b>? <b>Você não poderá desfazer essa ação!</b>!`,
+              icon: 'warning',
+              showCancelButton: true,
+              confirmButtonColor: '#dc3545',
+              confirmButtonText: 'DELETAR',
+              cancelButtonText: 'CANCELAR'
+          }).then((result) => {
+              if (result.isConfirmed) {
+                  
+                  fetch(deleteUrl, {
+                      method: 'POST', 
+                      headers: {
+                          'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                      }
+                  })
+                  .then(response => response.json())
+                  .then(data => {
+                      if (data.success) {
+                          Swal.fire(
+                              'Excluído!',
+                              data.message,
+                              'success'
+                          ).then(() => {
+                              location.reload();
+                          });
+                      } else {
+                          Swal.fire(
+                              'Erro!',
+                              data.message,
+                              'error'
+                          );
+                      }
+                  })
+                  .catch(error => {
+                      Swal.fire(
+                          'Erro!',
+                          'Ocorreu um erro ao tentar excluir o anúncio.',
+                          'error'
+                      );
+                  });
+              }
+          });
+      }
+  </script>
 </html>

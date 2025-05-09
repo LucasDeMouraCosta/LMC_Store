@@ -5,7 +5,6 @@ namespace App\Livewire;
 use Livewire\Component;
 use App\Models\Advertise;
 use App\Models\AdvertiseImage;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
 use Livewire\WithFileUploads;
 use Illuminate\Support\Str;
@@ -45,7 +44,7 @@ class AdvertiseEdit extends Component
                 }),
             ],
             'photos' => 'array|max:10',
-            'photos.*' => 'max:2048', // 2MB Max
+            'photos.*' => 'max:2048', 
         ];
     }
 
@@ -132,15 +131,12 @@ class AdvertiseEdit extends Component
 
     public function movePhotoLeft($index){
         if ($index > 0) {
-            // Trocar a posição da foto atual com a anterior
             $temp = $this->photos[$index - 1];
             $this->photos[$index - 1] = $this->photos[$index];
             $this->photos[$index] = $temp;
 
-            // Atualizar $allPhotos
             $this->allPhotos = $this->photos;
 
-            // Ajustar o índice de destaque, se necessário
             if ($this->featuredPhotoIndex === $index) {
                 $this->featuredPhotoIndex--;
             } elseif ($this->featuredPhotoIndex === $index - 1) {
@@ -151,15 +147,12 @@ class AdvertiseEdit extends Component
 
     public function movePhotoRight($index){
         if ($index < count($this->photos) - 1) {
-            // Trocar a posição da foto atual com a próxima
             $temp = $this->photos[$index + 1];
             $this->photos[$index + 1] = $this->photos[$index];
             $this->photos[$index] = $temp;
 
-            // Atualizar $allPhotos
             $this->allPhotos = $this->photos;
 
-            // Ajustar o índice de destaque, se necessário
             if ($this->featuredPhotoIndex === $index) {
                 $this->featuredPhotoIndex++;
             } elseif ($this->featuredPhotoIndex === $index + 1) {
@@ -198,23 +191,22 @@ class AdvertiseEdit extends Component
             'negotiable' => $this->negotiable,
         ]);
 
-        // Excluir fotos marcadas para exclusão
+        
         foreach ($this->photosToDelete as $photoId) {
             $image = $this->advertise->images()->find($photoId);
+
             if ($image) {
-                logger()->info('Deleting image BD: ' . $image->url);
-                // Remover o arquivo do armazenamento
-                $imagePath = public_path($image->url); // Converte a URL para o caminho absoluto no sistema de arquivos
+                $imagePath = public_path($image->url); 
+
                 if (file_exists($imagePath)) {
-                    unlink($imagePath); // Remove o arquivo do sistema de arquivos
+                    unlink($imagePath); 
                 }
-    
-                // Remover do banco de dados
+                
                 $image->delete();
             }
         }
 
-        // Atualizar a ordem das fotos existentes
+        
 
         if ($this->photos) {
             $destinationPath = public_path('assets' . DIRECTORY_SEPARATOR . 'advertises_images');

@@ -1,5 +1,5 @@
 <div class="password-input-area">
-    <input class="@error($name) is-invalid @enderror" type="password" name="{{ $name }}" placeholder="{{ $placeholder }}" id="{{ $id }}" required/>
+    <input class="@error($name) is-invalid @enderror" type="password" name="{{ $name }}" placeholder="{{ $placeholder }}" id="{{ $id }}" tabindex="{{ isset($tabindex)? $tabindex : '' }}" required/>
     <img src="/assets/icons/eyeIcon.png" alt="Ícone mostrar/ocultar senha" onclick="tooglePasswordVisibility('{{ $id }}')"/>
 </div>
 
