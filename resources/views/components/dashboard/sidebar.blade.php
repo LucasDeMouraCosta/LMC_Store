@@ -2,7 +2,7 @@
     <div class="sidebar-top">
 
         <a href="{{ route('my_account') }}" class="{{ request()->routeIs('my_account') ? 'sidebar-item-active' : 'sidebar-item' }}">
-            <i class="fa-solid fa-gear"></i> 
+            <i class="fa-solid fa-user"></i> 
             Meu Perfil
         </a>
 

@@ -49,11 +49,76 @@ header {
   color: #5c7bfa;
 }
 .header-area-right {
-  width: 316px;
+  width: 350px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  border-radius: 4px;
+}
+
+.dropdown-menu.show {
+  display: block;
+}
+
+.dropdown-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  color: #96a3ab;
+}
+
+.dropdown-toggle i{
+  margin-left: 8px; /* Espaço entre o ícone e o texto */
+  font-size: 16px; /* Ajuste o tamanho do ícone, se necessário */
+}
+
+.dropdown-menu a {
+  display: flex; /* Adiciona flexbox */
+  align-items: center; /* Alinha verticalmente no centro */
+  justify-content: flex-start; /* Garante que o ícone e o texto fiquem alinhados à esquerda */
+  color: #96a3ab;
+  padding: 12px 16px;
+  text-decoration: none;
+  border-bottom: 1px solid #96a3ab;
+  white-space: nowrap; /* Impede a quebra de linha */
+  overflow: hidden; /* Esconde o texto que ultrapassar o limite */
+  text-overflow: ellipsis; /* Adiciona reticências se o texto for muito longo */
+}
+
+.dropdown-menu a i {
+  margin-right: 10px; /* Espaço entre o ícone e o texto */
+  font-size: 16px; /* Ajuste o tamanho do ícone, se necessário */
+}
+
+.dropdown-menu a:hover {
+  background-color: #f1f1f1;
+  color: #5c7bfa;
+  border-bottom: 1px solid #5c7bfa;
+}
+
+
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
 .my-account {
   display: flex;
   align-items: center;
