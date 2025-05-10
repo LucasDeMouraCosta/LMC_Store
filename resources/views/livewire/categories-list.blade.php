@@ -2,10 +2,10 @@
     <div class="title">Categorias</div>
     <div class="buttons">
         @foreach ($categories as $category)
-            <button class="{{ $loop->first ? 'category-selected' : 'category' }}">
-                <img src="{{ asset($category->icon) }}" alt="Ícone {{ $category->name }}" />
-                {{ $category->name }}
-            </button>
+            <a class="category" href="{{ route('advertise.search', ['c' => $category->slug]) }}">
+                <i class="{{ $category->icon }}"></i>
+                <p>{{ $category->name }}</p>
+            </a>
         @endforeach
     </div>
 </div>

@@ -10,7 +10,7 @@ class CategoriesList extends Component
     public $categories;
 
     public function render(){
-        $this->categories = Category::all();
+        $this->categories = Category::limit(7)->get();
 
         return view('livewire.categories-list');
     }

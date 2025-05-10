@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Advertise;
 use App\Models\AdvertiseImage;
-use App\Models\Category;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 

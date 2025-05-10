@@ -90,8 +90,8 @@
 }
 
 .ad-button:hover i {
-  transform: scale(1.15); /* Exemplo: aumenta o tamanho do ícone */
-  transition: all 0.3s ease; /* Adiciona uma transição suave */
+  transform: scale(1.15);
+  transition: all 0.3s ease;
 }
 
 .ad-show-button:hover {
