@@ -37,6 +37,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard/my-account', [DashboardController::class, 'my_account'])->name('my_account');
     Route::post('/dashboard/my-account', [DashboardController::class, 'my_account_action'])->name('my_account_action');
     
+    Route::get('/dashboard/change-password', [DashboardController::class, 'change_password'])->name('change_password');
+    Route::post('/dashboard/change-password', [DashboardController::class, 'change_password_action'])->name('change_password_action');
+
     Route::get('/dashboard/my-ads', [DashboardController::class, 'my_ads'])->name('my_ads');
 
     Route::get('/dashboard/my-contacts', [DashboardController::class, 'my_contacts'])->name('my_contacts');

@@ -29,6 +29,10 @@ class DashboardController extends Controller
         return redirect()->back()->with('success', 'Dados atualizados com sucesso');
     }
 
+    public function change_password(){
+        return view('dashboard.change_password');
+    }
+
     public function my_ads(){
         
         $data['user'] = User::find(Auth::user()->id);

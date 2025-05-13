@@ -239,6 +239,9 @@ return [
         'photos' => 'fotos',
         'negotiable' => 'negociável',
         'user_contact_id' => 'contato',
+        'current_password' => 'senha atual',
+        'new_password' => 'nova senha',
+        'new_password_confirmation' => 'confirmação da nova senha',
     ],
 
 ];

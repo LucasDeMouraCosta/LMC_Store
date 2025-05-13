@@ -57,6 +57,9 @@
   align-items: center;
   padding-bottom: 20px;
 }
+.login-logo{
+  text-decoration: none;
+}
 .login-title {
   color: #5c7bfa;
   text-align: center;

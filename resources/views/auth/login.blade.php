@@ -13,7 +13,9 @@
     <a href="index.html" class="back-button">← Voltar</a>
     <div class="login-page">
       <div class="login-area">
-        <h3 class="login-title">LMC_Store</h3>
+        <a href="{{ route('home') }}" class="login-logo">
+          <h3 class="login-title">LMC_Store</h3>
+        </a>
         <div class="text-login">
           Use as suas credenciais para realizar o Login.
         </div>

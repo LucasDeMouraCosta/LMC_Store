@@ -30,7 +30,7 @@
                 </div>
             @endif
 
-            <form method="POST" action="{{ route('my_account_action') }}">
+            <form id="form_profile" method="POST" action="{{ route('my_account_action') }}">
               @csrf   
               <div class="name-area">
                 <div class="name-label">Nome</div>
@@ -46,6 +46,7 @@
                     </div>
                 @enderror
               </div>
+
               <div class="email-area">
                 <div class="email-label">E-mail</div>
                 <input
@@ -60,17 +61,7 @@
                     </div>
                 @enderror
               </div>
-              {{-- <div class="password-area">
-                <div class="password-label">Senha</div>
-                <div class="password-input-area">
-                  <input
-                    type="password"
-                    placeholder="Digite a sua senha"
-                    value="123456789"
-                  />
-                  <img src="/assets/icons/eyeIcon.png" />
-                </div>
-              </div> --}}
+
               <div class="state-area">
                 <div class="state-label">Estado</div>
                 <x-form.input-select-state :selectedState="$user->state_id" :allStates=false name="state_id" />

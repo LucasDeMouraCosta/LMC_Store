@@ -60,7 +60,6 @@
 }
 form {
   width: 472px;
-  margin-top: 56px;
 }
 .name-label,
 .email-label,
@@ -90,9 +89,7 @@ form {
 }
 .email-area,
 .state-area,
-.number-area {
-  margin-top: 24px;
-}
+.number-area,
 .password-label {
   margin-top: 24px;
 }

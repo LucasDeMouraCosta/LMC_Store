@@ -6,6 +6,11 @@
             Meu Perfil
         </a>
 
+        <a href="{{ route('change_password') }}" class="{{ request()->routeIs('change_password') ? 'sidebar-item-active' : 'sidebar-item' }}">
+            <i class="fa-solid fa-lock"></i>
+            Alterar Senha
+        </a>
+
         <a href="{{ route('my_ads') }}" class="{{ request()->routeIs('my_ads') ? 'sidebar-item-active' : 'sidebar-item' }}">
             <i class="fa-solid fa-folder-open"></i>
             Meus Anúncios

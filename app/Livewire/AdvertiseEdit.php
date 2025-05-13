@@ -206,8 +206,6 @@ class AdvertiseEdit extends Component
             }
         }
 
-        
-
         if ($this->photos) {
             $destinationPath = public_path('assets' . DIRECTORY_SEPARATOR . 'advertises_images');
 
