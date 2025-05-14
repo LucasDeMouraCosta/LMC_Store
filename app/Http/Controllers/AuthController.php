@@ -9,6 +9,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Password;
 
 class AuthController extends Controller
 {
@@ -48,6 +49,8 @@ class AuthController extends Controller
     public function login_action(LoginRequest $request){
         $credentials = $request->only('email', 'password');
 
+        session()->flash('email', $request->email);
+
         if (Auth::attempt($credentials)) {
             return redirect()->route('home');
         }
@@ -58,5 +61,17 @@ class AuthController extends Controller
     public function logout(){
         Auth::logout();
         return redirect()->route('login');
+    }
+
+    public function forgot_password_action(Request $request){
+        session()->flash('email', $request->email);
+        
+        $request->validate(['email' => 'required|email']);
+
+        $status = Password::sendResetLink($request->only('email'));
+
+        return $status === Password::RESET_LINK_SENT
+            ? back()->with('status', __($status))
+            : back()->withErrors(['email' => __($status)]);
     }
 }

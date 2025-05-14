@@ -33,7 +33,7 @@
           <div class="email-area">
             
             <div class="email-label">E-mail</div>
-            <input type="email" name="email" placeholder="Digite o seu e-mail" value="{{ @old('email') }}" tabindex="1" required/>
+            <input type="email" name="email" placeholder="Digite o seu e-mail" value="{{ session('email', old('email')) }}" tabindex="1" required/>
             
             @error('email')
               <div class="error">

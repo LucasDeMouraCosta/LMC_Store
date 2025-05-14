@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdvertiseController;
+use App\Http\Controllers\PasswordResetController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
@@ -17,7 +18,11 @@ Route::middleware(['guest'])->group(function () {
     Route::get('/register', function(){return view('auth.register');})->name('register');
     Route::post('/register', [AuthController::class, 'register_action'])->name('register_action');
 
-    Route::get('/forgot_password', function(){ return view('auth.forgot_password');})->name('forgot_password');
+    Route::get('/forgot_password', function(){ return view('auth.forgot-password');})->name('forgot_password');
+    Route::post('/forgot_password', [AuthController::class, 'forgot_password_action'])->name('forgot_password_action');
+
+    Route::get('/reset-password/{token}', [PasswordResetController::class, 'showResetForm'])->name('password.reset');
+    Route::post('/reset-password', [PasswordResetController::class, 'reset'])->name('password.update');
 
     Route::get('/login', function(){return view('auth.login');})->name('login');
     Route::post('/login', [AuthController::class, 'login_action'])->name('login_action');
