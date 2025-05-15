@@ -1,66 +1,151 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# LMC Store
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## English
 
-## About Laravel
+LMC Store is e-commerce application built with Laravel (PHP) for the backend and Livewire (for dynamic UI) + Tailwind CSS (for styling) on the frontend.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+### Features
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- User authentication
+- Dynamic and responsive interface (Tailwind CSS)
+- Real-time updates with Livewire
+- Sorting and filtering (Spatie Eloquent Sortable)
+- Localization (PT-BR support)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### Technologies
 
-## Learning Laravel
+- **Backend:** Laravel 12, PHP 8.2, Livewire, Spatie Eloquent Sortable
+- **Frontend:** Vite, Tailwind CSS, Axios
+- **Dev Tools:** PHPUnit, Pint, Faker, Sail (Docker), Mockery
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### Getting Started
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+1. **Clone the repository:**
+   ```sh
+   git clone https://github.com/yourusername/lmc_store.git
+   cd lmc_store
+   ```
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+2. **Install backend dependencies:**
+   ```sh
+   composer install
+   ```
 
-## Laravel Sponsors
+3. **Install frontend dependencies:**
+   ```sh
+   npm install
+   ```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+4. **Copy environment file and generate app key:**
 
-### Premium Partners
+   Copy the example environment file and generate the application key:
+   ```sh
+   cp .env.example .env
+   php artisan key:generate
+   ```
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+   > **Attention:**  
+   > - Configure the database connection variables (`DB_DATABASE`, `DB_USERNAME`, `DB_PASSWORD`) according to your local environment.
+   > - For email sending, fill in `MAIL_USERNAME` and `MAIL_PASSWORD` with your credentials from [Mailtrap](https://mailtrap.io/) or another SMTP service.
+   > - Make other adjustments as needed for your environment.
 
-## Contributing
+5. **Run migrations:**
+   ```sh
+   php artisan migrate
+   ```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+6. **Seed the database:**
+   ```sh
+   php artisan db:seed
+   ```
 
-## Code of Conduct
+7. **Start the development servers:**
+   ```sh
+   npm run dev
+   php artisan serve
+   ```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+8. **Access the app:**  
+   Open [http://localhost:8000](http://localhost:8000) in your browser.
 
-## Security Vulnerabilities
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+9. **Default admin credentials:**  
+   - Email: `admin@admin.com`  
+   - Password: `123456`
 
-## License
+---
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## Português
+
+LMC Store é uma aplicação de e-commerce construída com Laravel (PHP) no backend e Livewire (para interfaces dinâmicas) + Tailwind CSS (para estilização) no frontend.
+
+### Funcionalidades
+
+- Autenticação de usuários
+- Interface dinâmica e responsiva (Tailwind CSS)
+- Atualizações em tempo real com Livewire
+- Ordenação e filtros (Spatie Eloquent Sortable)
+- Suporte à localização (PT-BR)
+
+### Tecnologias
+
+- **Backend:** Laravel 12, PHP 8.2, Livewire, Spatie Eloquent Sortable
+- **Frontend:** Vite, Tailwind CSS, Axios
+- **Ferramentas de Dev:** PHPUnit, Pint, Faker, Sail (Docker), Mockery
+
+### Como começar
+
+1. **Clone o repositório:**
+   ```sh
+   git clone https://github.com/seunomeusuario/lmc_store.git
+   cd lmc_store
+   ```
+
+2. **Instale as dependências do backend:**
+   ```sh
+   composer install
+   ```
+
+3. **Instale as dependências do frontend:**
+   ```sh
+   npm install
+   ```
+
+4. **Configure o arquivo de ambiente (.env):**
+
+   Copie o arquivo de exemplo e gere a chave da aplicação:
+   ```sh
+   cp .env.example .env
+   php artisan key:generate
+   ```
+
+   > **Atenção:**  
+   > - Configure as variáveis de conexão com o banco de dados (`DB_DATABASE`, `DB_USERNAME`, `DB_PASSWORD`) conforme seu ambiente local.
+   > - Para envio de e-mails, preencha `MAIL_USERNAME` e `MAIL_PASSWORD` com suas credenciais do [Mailtrap](https://mailtrap.io/) ou outro serviço SMTP.
+   > - Outros ajustes podem ser feitos conforme necessário para seu ambiente.
+
+5. **Rode as migrações:**
+   ```sh
+   php artisan migrate
+   ```
+
+6. **Alimente o banco de dados:**
+   ```sh
+   php artisan db:seed
+   ```
+
+7. **Inicie os servidores de desenvolvimento:**
+   ```sh
+   npm run dev
+   php artisan serve
+   ```
+
+8. **Acesse a aplicação:**  
+   Abra [http://localhost:8000](http://localhost:8000) no seu navegador.
+   
+
+9. **Credenciais padrão do administrador:**  
+   - Email: `admin@admin.com`  
+   - Senha: `123456`
+
+---
