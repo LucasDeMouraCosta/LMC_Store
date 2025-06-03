@@ -239,6 +239,17 @@
             });
         });
 
+        window.addEventListener('advertise-create-error', event => {
+            Swal.fire({
+                icon: 'error',
+                title: 'Atenção!',
+                text: event.detail[0].message,
+                confirmButtonText: 'OK'
+            }).then(() => {
+                window.location.href = event.detail[0].redirect;
+            });
+        });
+
     </script>
 
 </main>

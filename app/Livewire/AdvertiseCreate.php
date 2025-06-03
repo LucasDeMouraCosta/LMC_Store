@@ -48,7 +48,14 @@ class AdvertiseCreate extends Component
 
     public function mount(){
         $this->stateSelected = Auth::user()->state_id;
-        $this->user_contact_id = UserContact::where('user_id', Auth::user()->id)->orderBy('label')->first()->id;
+        $this->user_contact_id = UserContact::where('user_id', Auth::user()->id)->orderBy('label')->first()->id ?? null;
+
+        if($this->user_contact_id === null){
+            $this->dispatch('advertise-create-error', [
+                'message' => 'Você precisa adicionar ao menos um número de contato antes de criar um anúncio.',
+                'redirect' => route('my_contacts')
+            ]);
+        }
     }
 
     public function render(){

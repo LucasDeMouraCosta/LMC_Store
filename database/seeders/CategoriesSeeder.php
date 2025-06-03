@@ -21,6 +21,12 @@ class CategoriesSeeder extends Seeder
             ['name' => 'Bêbes', 'slug' => 'bebes', 'icon' => 'fa-solid fa-baby-carriage'],
             ['name' => 'Móveis', 'slug' => 'moveis', 'icon' => 'fa-solid fa-couch'],
             ['name' => 'Imóveis', 'slug' => 'imoveis', 'icon' => 'fa-solid fa-house'],
+            ['name' => 'Brinquedos', 'slug' => 'brinquedos', 'icon' => 'fa-solid fa-baby'],
+            ['name' => 'Livros', 'slug' => 'livros', 'icon' => 'fa-solid fa-book'],
+            ['name' => 'Instrumentos Musicais', 'slug' => 'instrumentos-musicais', 'icon' => 'fa-solid fa-guitar'],
+            ['name' => 'Ferramentas', 'slug' => 'ferramentas', 'icon' => 'fa-solid fa-tools'],
+            ['name' => 'Animais de Estimação', 'slug' => 'animais-de-estimacao', 'icon' => 'fa-solid fa-paw'],
+            ['name' => 'Outros', 'slug' => 'outros', 'icon' => 'fa-solid fa-ellipsis-h'],
         ];
 
         Category::insert($categories);
